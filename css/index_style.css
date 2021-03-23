@@ -57,7 +57,8 @@ label{
     border: none;
     border-radius: 0.5em;
     box-sizing: border-box;
-    padding: 1em 1em;
+    padding: 0.7em 1em;
+    font-size: 1rem;
 }
 
 .formWrapper a{
@@ -115,6 +116,32 @@ p{
     margin-top: 3em;
     text-align: center;
     color: #d2d2d2;
+}
+
+@media screen and (min-width: 768px){
+    .container{
+        width: 50%;
+    }
+
+    .formWrapper .inputFields{
+        padding: 0.5em;
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    
+    .container{
+        width: 35%;
+    }
+    .greetingMessage{
+        margin-top: 20vh;
+    }
+
+    .formWrapper{
+        margin-top: 1.5em;
+
+    }
 }
 
 
