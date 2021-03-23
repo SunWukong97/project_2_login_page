@@ -81,6 +81,11 @@ label{
     padding: 0.7em 1em;
 }
 
+.submitButton:hover{
+    cursor: pointer;
+    background-color: #ec8b8e;
+}
+
 h3{
     text-align: center;
     border-bottom: 0.15em solid white;
@@ -101,7 +106,7 @@ h3 span{
     margin-top: 3em;
     justify-content: space-between;
     max-width: 100%;
-    width: 40%;
+    width: 45%;
 }
 
 .alternateLogin a{
@@ -127,6 +132,9 @@ p{
         padding: 0.5em;
         font-size: 1.25rem;
     }
+    .alternateLogin{
+        width: 35%;
+    }
 }
 
 @media screen and (min-width: 1024px){
@@ -141,6 +149,9 @@ p{
     .formWrapper{
         margin-top: 1.5em;
 
+    }
+    .alternateLogin{
+        width: 25%;
     }
 }
 
