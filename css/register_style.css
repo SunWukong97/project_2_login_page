@@ -22,8 +22,12 @@ a{
     margin-right: auto;
     width: 80%;
     max-width: 80%;
+    font-weight: 500;
 }
-
+.greetingMessage{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
 h1{
     font-size: var(--h1-font-size);
     text-align: center;
@@ -33,10 +37,67 @@ h1{
 .grid{
     display: grid;
     grid-template-rows: auto;
+    font-size: var(--text-font-size);
 }
+
 
 .input-fields{
-    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    max-width: 100%;
     width: 100%;
+    border: none;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    padding: 0.7em 1em;
+    font-size: 1rem;
 }
 
+.submitButton{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    border-radius: 2em;
+    font-size: 1rem;
+    color: white;
+    background-color: #f31c22;
+    border: none;
+    font-weight: 500;
+    padding: 0.7em 1em;
+}
+
+.submitButton:hover{
+    cursor: pointer;
+    background-color: #ec8b8e;
+}
+
+p{
+    margin-top: 6em;
+    text-align: center;
+    color: #d2d2d2;
+}
+
+@media screen and (min-width: 768px){
+    .greetingMessage{
+        margin-top: 10em;
+    }
+
+    .container{
+        width: 50%;
+    }
+
+    .input-fields{
+        padding: 0.5em;
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .container{
+        width: 35%;
+    }
+
+    .greetingMessage{
+        margin-top: 15vh;
+    }
+}
