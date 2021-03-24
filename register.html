@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The registration page">
+    <title>Register</title>
+    <!--stylesheets-->
+    <link rel="stylesheet" href="css/css_reset.css">
+    <link rel="stylesheet" href="css/register_style.css">
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="greetingMessage">
+            <h1>Register</h1>
+        </div>
+        <form action="" class="grid">
+            <div class="input-group">
+                <label for="first-name">First name</label>
+                <input type="text" name="first-name" id="first-name-field" class="input-fields">
+            </div>
+            <label for="last-name">Last name</label>
+            <input type="text" name="last-name" id="last-name-field" class="input-fields">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email-field" class="input-fields">
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password-field" class="input-fields">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="text" name="confirm-password" id="confirm-password-field" class="input-fields">
+            <input type="button" value="SIGN UP" class="submitButton" onclick="submitFunction()">
+        </form>
+
+        <p>Don't have an account? <a href="#">Join us</a></p>
+    </div>
+</body>
+</html>
