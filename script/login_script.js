@@ -1,63 +1,60 @@
-let defaultUsername = "admin";
-let defaultPassword = "admin";
+//importing modules: similar to importing classes in Java
+import User from './module/user.js';
+
+
+
+const defaultUser = new User("admin", "admin");
+const defaultUser2 = new User("username", "password");
+
+let listOfUsers = [defaultUser, defaultUser2];
+
+
 let username;
 let password;
 
-let listOfUsers = [];
+/**
+ * when using modules use event listeners to allow for interactability, specifically onclick events.
+ * If not functions will be 'undefined' and an error will occur
+ */
+document.getElementById("signInButton").addEventListener('click', () =>{
+    submitFunction();
+});
 
+
+
+function test(){
+    console.log("hello");
+}
 function submitFunction(){
     username = document.getElementById('usernameField').value;
     password = document.getElementById('passwordField').value;
+    let userExist = false;
 
-    if(username === defaultUsername && password === defaultPassword)
-    {
-        console.log("welcome");
+    for(var i = 0; i < listOfUsers.length; i++){
+        if(listOfUsers[i].username === username && listOfUsers[i].password === password)
+            {
+                console.log("welcome");
+                userExist = true;
+               
+            }
+            
     }
-
-    else{
+    
+    if(!userExist){
         console.log('incorrect username and/or password');
     }
+    
+
+    // if(username === defaultUser.username && password === defaultUser.password)
+    // {
+        
+    // }
+
+    // else if(username === defaultUser2.username && password === defaultUser2.password)
+    // {
+    //     console.log("welcome");
+    // }
+
+   
 }
 
-//for later use in the registration page
-function registerFunction(){
-
-    username = document.getElementById('usernameField').value;
-    password = document.getElementById('passwordField').value;
-    var newUser = new User(username, password);
-    
-    listOfUsers.push(newUser);
-    
-    
-    for(let i = 0; i < listOfUsers.length; i++)
-    {
-        console.log(`${listOfUsers[i].username} + ${listOfUsers[i].password}`);
-        //experimenting with getter and setters
-        // listOfUsers[i].username = "new username";
-        // listOfUsers[i].password = "new password";
-        // console.log(`${listOfUsers[i].username} + ${listOfUsers[i].password}`);
-    }
-}
-
-class User{
-    constructor(username, password){
-        this._username = username;
-        this._password = password;
-    }
-
-    get username(){
-        return this._username;
-    }
-
-    get password(){
-        return this._password;
-    }
-
-    set username(newUsername){
-        this._username = newUsername;
-    }
-
-    set password(newPassword){
-        this._password = newPassword;
-    }
-}
