@@ -4,9 +4,29 @@
 
 
 export default class User{
-    constructor(username, password){
+    // constructor(username, password){
+    //     this._username = username;
+    //     this._password = password;
+    // }
+    constructor(firstname, lastname, email, username, password){
+        this._firstname = firstname;
+        this._lastname = lastname;
+        this._email = email;
         this._username = username;
         this._password = password;
+
+    }
+
+    get firstname(){
+        return this._firstname;
+    }
+
+    get lastname(){
+        return this._lastname;
+    }
+
+    get email(){
+        return this._email;
     }
 
     get username(){
@@ -15,6 +35,18 @@ export default class User{
 
     get password(){
         return this._password;
+    }
+
+    set firstname(newFirstname){
+        this._firstrname = newFirstname;
+    }
+
+    set lastname(newLastname){
+        this._lastname = newLastname;
+    }
+
+    set email(newEmail){
+        this._email = newEmail;
     }
 
     set username(newUsername){
