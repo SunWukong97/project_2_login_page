@@ -1,7 +1,11 @@
+import User from './module/user';
+
+let listOfUsers = [];
+
 function registerFunction(){
 
-    username = document.getElementById('usernameField').value;
-    password = document.getElementById('passwordField').value;
+    let username = document.getElementById('usernameField').value;
+    let password = document.getElementById('passwordField').value;
     var newUser = new User(username, password);
     
     listOfUsers.push(newUser);
