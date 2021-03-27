@@ -3,8 +3,8 @@ import User from './module/user.js';
 
 
 
-const defaultUser = new User("admin", "admin");
-const defaultUser2 = new User("username", "password");
+const defaultUser = new User("admin", "admin,", "admin", "admin", "admin");
+const defaultUser2 = new User("admin", "admin", "admin", "username", "password");
 
 let listOfUsers = [defaultUser, defaultUser2];
 
@@ -22,9 +22,7 @@ document.getElementById("signInButton").addEventListener('click', () =>{
 
 
 
-function test(){
-    console.log("hello");
-}
+
 function submitFunction(){
     username = document.getElementById('usernameField').value;
     password = document.getElementById('passwordField').value;
@@ -45,15 +43,7 @@ function submitFunction(){
     }
     
 
-    // if(username === defaultUser.username && password === defaultUser.password)
-    // {
-        
-    // }
-
-    // else if(username === defaultUser2.username && password === defaultUser2.password)
-    // {
-    //     console.log("welcome");
-    // }
+    
 
    
 }
