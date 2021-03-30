@@ -56,6 +56,16 @@ export default class User{
     set password(newPassword){
         this._password = newPassword;
     }
+
+    toJSON(){
+        return {
+            firstname : this._firstname,
+            lastname: this._lastname,
+            email: this._email,
+            username: this._username,
+            password: this._password
+        };
+    }
 }
 
 //for exporting multiple classes ECMAScript 2015
