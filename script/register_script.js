@@ -1,22 +1,46 @@
-import User from './module/user';
+import User from './module/user.js';
 
-let listOfUsers = [];
+
+let submitBtn = document.getElementById('submit-button');
+submitBtn.addEventListener('click', () => {
+    registerFunction();
+});
 
 function registerFunction(){
 
-    let username = document.getElementById('usernameField').value;
-    let password = document.getElementById('passwordField').value;
-    var newUser = new User(username, password);
+    let firstname = document.getElementById('first-name-field').value;
+    let lastname = document.getElementById('last-name-field').value;
+    let email = document.getElementById('email-field').value;
+    let username = document.getElementById('username-field').value;
+    let password = document.getElementById('password-field').value;
+    let confirmPassword = document.getElementById('confirm-password-field').value;
     
-    listOfUsers.push(newUser);
+
+
     
-    
-    for(let i = 0; i < listOfUsers.length; i++)
-    {
-        console.log(`${listOfUsers[i].username} + ${listOfUsers[i].password}`);
-        //experimenting with getter and setters
-        // listOfUsers[i].username = "new username";
-        // listOfUsers[i].password = "new password";
-        // console.log(`${listOfUsers[i].username} + ${listOfUsers[i].password}`);
+    if(password === confirmPassword && validateRegistration(username, email)){
+        var newUser = new User(firstname, lastname, email, username, password);
+        console.log(newUser);
+
+        localStorage.setItem(newUser.username, JSON.stringify(newUser));
+        console.log(JSON.stringify(newUser));
+
+        localStorage.setItem(email, email);
+
+        window.location.href = "index.html";
     }
+
+    else{
+        console.log("username already exists");
+    }      
+    
+}
+
+function validateRegistration(unregUsername, unregEmail){
+    
+    if(localStorage.getItem(unregUsername) === null && localStorage.getItem(unregEmail) == null){
+        return true;
+    }
+
+    return false;
 }
