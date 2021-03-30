@@ -6,7 +6,7 @@ import User from './module/user.js';
 const defaultUser = new User("admin", "admin,", "admin", "admin", "admin");
 const defaultUser2 = new User("admin", "admin", "admin", "username", "password");
 
-let listOfUsers = [defaultUser, defaultUser2];
+let listOfDefaultUsers = [defaultUser, defaultUser2];
 
 
 let username;
@@ -28,14 +28,26 @@ function submitFunction(){
     password = document.getElementById('passwordField').value;
     let userExist = false;
 
-    for(var i = 0; i < listOfUsers.length; i++){
-        if(listOfUsers[i].username === username && listOfUsers[i].password === password)
+    for(var i = 0; i < listOfDefaultUsers.length; i++){
+        if(listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password)
             {
                 console.log("welcome");
                 userExist = true;
-               
+               break;
             }
             
+    }
+
+    if(localStorage.getItem(username) !== null){
+
+        let userInfo = JSON.parse(localStorage.getItem(username));
+        let correctPassword = userInfo.password;
+        if(password === correctPassword)
+        {
+            console.log('welcome');
+            console.log(userInfo);
+            userExist = true;
+        }
     }
     
     if(!userExist){
