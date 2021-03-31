@@ -39,7 +39,7 @@ function registerFunction(){
         console.log(JSON.stringify(newUser));
 
         //When redirected to profile page allows for it to keep track of who is currently logged in.
-        localStorage.setItem(email, email);
+        localStorage.setItem("currentUser", JSON.stringify(newUser));
 
         window.location.href = "profile.html";
     }
