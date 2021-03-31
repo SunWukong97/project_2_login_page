@@ -46,6 +46,12 @@ h2{
     display: block;
 }
 
+.invalid{
+    text-align: left;
+    color: red;
+    display: none;
+}
+
 label{
     padding-bottom: 0.5em;
     padding-top: 1em;
