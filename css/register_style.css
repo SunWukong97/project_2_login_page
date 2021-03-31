@@ -71,15 +71,6 @@ h1{
     background-color: #ec8b8e;
 }
 
-.disabled{
-    background-color: grey;
-}
-
-.disabled:hover{
-    cursor: default;
-    background-color: grey;
-}
-
 p{
     margin-top: 3.5em;
     text-align: center;

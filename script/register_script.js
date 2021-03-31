@@ -11,54 +11,27 @@
 import User from './module/user.js';
 
 
-
-let firstname = document.getElementById('first-name-field');
-let lastname = document.getElementById('last-name-field');
-let email = document.getElementById('email-field');
-let username = document.getElementById('username-field');
-let password = document.getElementById('password-field');
-let confirmPassword = document.getElementById('confirm-password-field');
-
 let submitBtn = document.getElementById('submit-button');
-submitBtn.addEventListener('click', (event) => {
-    event.preventDefault();
+submitBtn.addEventListener('click', () => {
     registerFunction();
 });
-
-submitBtn.disabled = true;
-submitBtn.classList.add("disabled");
-
-firstname.addEventListener("input", (event)=>{
-    const notEmpty = firstname.value;
-    const notEmptySpace = firstname.value.trim();
-    if(notEmpty && notEmptySpace){
-        submitBtn.disabled = false;
-        submitBtn.classList.remove("disabled");
-    }
-
-    else{
-        submitBtn.disabled = true;
-        submitBtn.classList.add("disabled")
-    }
-});
-
-
 
 /**
  * Validates wether or not the username and email already exists along with if the password entered is correct
  */
-function registerFunction() {
+function registerFunction(){
 
-    firstname = document.getElementById('first-name-field').value;
-    lastname = document.getElementById('last-name-field').value;
-    email = document.getElementById('email-field').value;
-    username = document.getElementById('username-field').value;
-    password = document.getElementById('password-field').value;
-    confirmPassword = document.getElementById('confirm-password-field').value;
+    let firstname = document.getElementById('first-name-field').value;
+    let lastname = document.getElementById('last-name-field').value;
+    let email = document.getElementById('email-field').value;
+    let username = document.getElementById('username-field').value;
+    let password = document.getElementById('password-field').value;
+    let confirmPassword = document.getElementById('confirm-password-field').value;
+    
 
 
-
-    if (password === confirmPassword && validateRegistration(username, email)) {
+    
+    if(password === confirmPassword && validateRegistration(username, email)){
         var newUser = new User(firstname, lastname, email, username, password);
         console.log(newUser);
 
@@ -71,10 +44,10 @@ function registerFunction() {
         window.location.href = "profile.html";
     }
 
-    else {
+    else{
         console.log("username already exists");
-    }
-
+    }      
+    
 }
 
 /**
@@ -84,9 +57,9 @@ function registerFunction() {
  * @returns a boolean value depending on whether the email and username inputted are unregistered. True if no registered, false if 
  *          they alread exist
  */
-function validateRegistration(unregUsername, unregEmail) {
-
-    if (localStorage.getItem(unregUsername) === null && localStorage.getItem(unregEmail) == null) {
+function validateRegistration(unregUsername, unregEmail){
+    
+    if(localStorage.getItem(unregUsername) === null && localStorage.getItem(unregEmail) == null){
         return true;
     }
 

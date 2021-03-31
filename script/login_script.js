@@ -24,7 +24,6 @@ let password;
  * If not functions will be 'undefined' and an error will occur
  */
 document.getElementById("signInButton").addEventListener('click', () => {
-    event.preventDefault();
     submitFunction();
 });
 
