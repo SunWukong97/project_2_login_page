@@ -51,6 +51,7 @@ function submitFunction() {
     }
 
     if (localStorage.getItem(username) !== null) {
+        
         try {
             let userInfo = JSON.parse(localStorage.getItem(username));
             let correctPassword = userInfo.password;
