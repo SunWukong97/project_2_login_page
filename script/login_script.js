@@ -7,6 +7,7 @@
 import User from './module/user.js';
 
 
+let errorMessage = document.getElementById("invalid");
 
 const defaultUser = new User("admin", "admin,", "admin", "admin", "admin");
 const defaultUser2 = new User("admin", "admin", "admin", "username", "password");
@@ -62,11 +63,7 @@ function submitFunction(){
     
     if(!userExist){
         console.log('incorrect username and/or password');
-    }
-    
-
-    
-
-   
+        errorMessage.style.display = "block";
+    }   
 }
 
