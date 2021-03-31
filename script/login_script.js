@@ -55,6 +55,7 @@ function submitFunction(){
             localStorage.setItem("currentUser", localStorage.getItem(username));
             console.log('welcome');
             console.log(userInfo);
+            window.location.href = "profile.html";
             userExist = true;
         }
     }
