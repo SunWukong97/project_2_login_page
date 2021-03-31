@@ -28,6 +28,7 @@ submitBtn.addEventListener('click', (event) => {
 submitBtn.disabled = true;
 submitBtn.classList.add("disabled");
 
+//will constatnly check to see if anything is typed into the field
 firstname.addEventListener("input", (event)=>{
     const notEmpty = firstname.value;
     const notEmptySpace = firstname.value.trim();
