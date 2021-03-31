@@ -9,6 +9,7 @@ import User from './module/user.js';
 
 let errorMessage = document.getElementById("invalid");
 
+
 const defaultUser = new User("admin", "admin,", "admin", "admin", "admin");
 const defaultUser2 = new User("admin", "admin", "admin", "username", "password");
 
@@ -22,8 +23,12 @@ let password;
  * when using modules use event listeners to allow for interactability, specifically onclick events.
  * If not functions will be 'undefined' and an error will occur
  */
-document.getElementById("signInButton").addEventListener('click', () =>{
+document.getElementById("signInButton").addEventListener('click', () => {
     submitFunction();
+});
+
+document.getElementById("clear-button").addEventListener('click', () => {
+    deleteAllAccounts();
 });
 
 
@@ -31,39 +36,53 @@ document.getElementById("signInButton").addEventListener('click', () =>{
 /**
  * To validate whether or not the login credentials are correct,
  */
-function submitFunction(){
+function submitFunction() {
     username = document.getElementById('usernameField').value;
     password = document.getElementById('passwordField').value;
     let userExist = false;
 
-    for(var i = 0; i < listOfDefaultUsers.length; i++){
-        if(listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password)
-            {
-                console.log("welcome");
-                userExist = true;
-               break;
-            }
-            
-    }
-
-    if(localStorage.getItem(username) !== null){
-
-        let userInfo = JSON.parse(localStorage.getItem(username));
-        let correctPassword = userInfo.password;
-        if(password === correctPassword)
-        {
-            //to know who is currently logged in and to pull their info for their profile page
-            localStorage.setItem("currentUser", localStorage.getItem(username));
-            console.log('welcome');
-            console.log(userInfo);
-            window.location.href = "profile.html";
+    for (var i = 0; i < listOfDefaultUsers.length; i++) {
+        if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
+            console.log("welcome");
             userExist = true;
+            break;
         }
+
     }
-    
-    if(!userExist){
+
+    if (localStorage.getItem(username) !== null) {
+        try {
+            let userInfo = JSON.parse(localStorage.getItem(username));
+            let correctPassword = userInfo.password;
+            if (password === correctPassword) {
+                //to know who is currently logged in and to pull their info for their profile page
+                localStorage.setItem("currentUser", localStorage.getItem(username));
+                console.log('welcome');
+                console.log(userInfo);
+                window.location.href = "profile.html";
+                userExist = true;
+            }
+
+        } 
+        catch (error) {
+            errorMessage.style.display = "block";            
+
+        }
+
+
+    }
+
+    if (!userExist) {
         console.log('incorrect username and/or password');
         errorMessage.style.display = "block";
-    }   
+    }
+}
+
+/**
+ * deletes all accounts and their info stored in the database
+ * aka the local storage
+ */
+function deleteAllAccounts(){
+    localStorage.clear();
 }
 
