@@ -1,3 +1,8 @@
+/**
+ * @author Thomas Nguyen
+ * This script checks whether or not the login credentials matches the ones that already exists in the database for the website.
+ * This particular version utilizes local storage as the database where it pulls and push info to and from. 
+ */
 //importing modules: similar to importing classes in Java
 import User from './module/user.js';
 
@@ -22,7 +27,9 @@ document.getElementById("signInButton").addEventListener('click', () =>{
 
 
 
-
+/**
+ * To validate whether or not the login credentials are correct,
+ */
 function submitFunction(){
     username = document.getElementById('usernameField').value;
     password = document.getElementById('passwordField').value;
@@ -44,6 +51,8 @@ function submitFunction(){
         let correctPassword = userInfo.password;
         if(password === correctPassword)
         {
+            //to know who is currently logged in and to pull their info for their profile page
+            localStorage.setItem("currentUser", localStorage.getItem(username));
             console.log('welcome');
             console.log(userInfo);
             userExist = true;

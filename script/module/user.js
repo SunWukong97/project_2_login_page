@@ -1,5 +1,6 @@
 /**
- * user class that stores username and their password
+ * @author Thomas Nguyen
+ * user class that stores username, password, firstname, lastname and email
  */
 
 
@@ -57,6 +58,10 @@ export default class User{
         this._password = newPassword;
     }
 
+    /**
+     * 
+     * @returns a JSON object of an instance of this class
+     */
     toJSON(){
         return {
             firstname : this._firstname,
