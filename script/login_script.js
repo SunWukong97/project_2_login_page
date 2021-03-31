@@ -44,6 +44,7 @@ function submitFunction() {
     for (var i = 0; i < listOfDefaultUsers.length; i++) {
         if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
             console.log("welcome");
+            localStorage.setItem("currentUser", JSON.stringify(listOfDefaultUsers[i]));
             userExist = true;
             break;
         }
