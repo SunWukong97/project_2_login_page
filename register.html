@@ -31,10 +31,13 @@
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email-field" class="input-fields">
             </div>
+            <p class="error-message" id="email-error-message">An account with this email already exist</p>
+            <p class="error-message" id="email-error-message2">Invalid email format</p>
             <div>
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username-field" class="input-fields">
             </div>
+            <p class="error-message" id="username-error-message">Username already exist</p>
             <div>
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password-field" class="input-fields">
@@ -43,6 +46,7 @@
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" name="confirm-password" id="confirm-password-field" class="input-fields">
             </div>
+            <p class="error-message" id="password-error-message">Passwords do not match</p>
             <button class="submitButton" id="submit-button">SIGN UP</button>
         </form>
 

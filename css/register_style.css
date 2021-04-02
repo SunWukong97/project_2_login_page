@@ -37,13 +37,14 @@ h1{
 .grid{
     display: grid;
     grid-template-rows: auto;
+    row-gap: 1.25em;
     font-size: var(--text-font-size);
 }
 
 
 .input-fields{
     margin-top: 0.5em;
-    margin-bottom: 1em;
+    
     max-width: 100%;
     width: 100%;
     border: none;
@@ -51,6 +52,14 @@ h1{
     box-sizing: border-box;
     padding: 0.7em 1em;
     font-size: 1rem;
+}
+
+.error-message{
+    color: red;
+    text-align: left;
+    margin-top: -1em;
+    
+    
 }
 
 .submitButton{
@@ -81,7 +90,7 @@ h1{
 }
 
 p{
-    margin-top: 3.5em;
+    margin-top: 1.5em;
     text-align: center;
     color: #d2d2d2;
 }
