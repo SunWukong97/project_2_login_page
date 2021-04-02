@@ -10,7 +10,13 @@
 
 import User from './module/user.js';
 
-
+//let buttonDisabled = true;
+let firstnameFilled;
+let lastnameFilled;
+let usernameFilled;
+let emailFilled;
+let passwordFilled;
+let confirmPasswordFilled;
 
 let firstname = document.getElementById('first-name-field');
 let lastname = document.getElementById('last-name-field');
@@ -30,18 +36,49 @@ submitBtn.classList.add("disabled");
 
 //will constatnly check to see if anything is typed into the field
 firstname.addEventListener("input", (event)=>{
-    const notEmpty = firstname.value;
-    const notEmptySpace = firstname.value.trim();
-    if(notEmpty && notEmptySpace){
+     firstnameFilled = checkInputField(firstname);
+     
+});
+
+lastname.addEventListener("input", () => {
+     lastnameFilled = checkInputField(lastname);
+});
+
+email.addEventListener("input", () => {
+    emailFilled =  checkInputField(email);
+});
+
+username.addEventListener("input", () => {
+     usernameFilled = checkInputField(username);
+});
+
+password.addEventListener("input", () => {
+     passwordFilled = checkInputField(password);
+});
+
+confirmPassword.addEventListener("input", () => {
+     confirmPasswordFilled = checkInputField(confirmPassword);
+});
+
+
+
+
+//a loop that will continually check if all fields of the form are filled every 500ms
+var interval = 500;
+window.setInterval(() => {
+    // your code goes here ...
+    if(firstnameFilled && lastnameFilled && usernameFilled && passwordFilled && confirmPasswordFilled) {
         submitBtn.disabled = false;
         submitBtn.classList.remove("disabled");
+        console.log("hello");
+    
     }
-
     else{
         submitBtn.disabled = true;
-        submitBtn.classList.add("disabled")
+        submitBtn.classList.add('disabled');
     }
-});
+}, interval);
+
 
 
 
@@ -90,6 +127,27 @@ function validateRegistration(unregUsername, unregEmail) {
     if (localStorage.getItem(unregUsername) === null && localStorage.getItem(unregEmail) == null) {
         return true;
     }
+
+    return false;
+}
+
+
+function checkInputField(inputField){
+    
+    const notEmpty = inputField.value;
+    const notEmptySpaces = inputField.value.trim();
+    if(notEmpty && notEmptySpaces){
+        //buttonDisabled = false;
+        //submitBtn.disabled = false;
+        //submitBtn.classList.remove("disabled");
+        return true;
+    }
+
+    // else{
+    //     buttonDisabled = true;
+    //     //submitBtn.disabled = true;
+    //     submitBtn.classList.add("disabled")
+    // }
 
     return false;
 }
