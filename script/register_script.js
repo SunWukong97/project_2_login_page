@@ -116,7 +116,6 @@ function registerFunction() {
         emailErrorMessage.style.display = "block";
     }
 
-    console.log(validEmailFormat(email));
     if (!validEmailFormat(email)) {
         emailErrorMessage2.style.display = "block";
     }
@@ -141,7 +140,7 @@ function registerFunction() {
 }
 
 /**
- * 
+ * Checks to see if the username is already registered
  * @param {*} unregUsername string from the username input field 
  * @returns a boolean value depending on whether the email and username inputted are unregistered. True if no registered, false if 
  *          they alread exist
@@ -156,7 +155,7 @@ function validateUsernameRegistration(unregUsername) {
 }
 
 /**
- * 
+ * Checks to see if the email address is already registered
  * @param {*} unregEmail string from the email input field
  * @returns a boolean value depending on whether the email and username inputted are unregistered. True if no registered, false if 
  *          they alread exist
@@ -170,6 +169,11 @@ function validateEmailRegistration(unregEmail) {
     return false;
 }
 
+/**
+ * Checks to see if the password is formatted correctly
+ * @param {*} passwordField strin from the password input field 
+ * @returns  a boolean value depending if the password is formatted correctly
+ */
 function validPasswordFormat(passwordField) {
     let array = passwordField.split("");
     let validPassword = true;
@@ -184,13 +188,16 @@ function validPasswordFormat(passwordField) {
     return validPassword;
 }
 
+/**
+ * Checks to see if the email is formatted correctly 
+ * @param {*} emailField string from the email input field
+ * @returns a boolean value depending if the email is formatted correctly 
+ */
 function validEmailFormat(emailField) {
 
     if (emailField.indexOf('@') != -1) {
-        console.log("no @");
         let array = emailField.substring(emailField.indexOf("@"));
         array = array.split('');
-        console.log(array);
         if (array.length > 1) {
             return true;
         }
@@ -198,6 +205,11 @@ function validEmailFormat(emailField) {
     return false;
 }
 
+/**
+ * Checks to see if characters have been inputted into the input fields
+ * @param {*} inputField the input field to be checked
+ * @returns a boolean value depending on if the input fields are not just empty spaces
+ */
 function checkInputField(inputField) {
 
     const notEmpty = inputField.value;
