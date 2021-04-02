@@ -46,6 +46,7 @@ function submitFunction() {
         if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
             console.log("welcome");
             localStorage.setItem("currentUser", JSON.stringify(listOfDefaultUsers[i]));
+            window.location.href = "profile.html";
             userExist = true;
             break;
         }
@@ -60,8 +61,6 @@ function submitFunction() {
             if (password === correctPassword) {
                 //to know who is currently logged in and to pull their info for their profile page
                 localStorage.setItem("currentUser", localStorage.getItem(username));
-                console.log('welcome');
-                console.log(userInfo);
                 window.location.href = "profile.html";
                 userExist = true;
             }
