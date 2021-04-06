@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="modal-container">
+    <div class="modal-container" id="dialog-modal">
         <div class="modal">
             <p>Are you sure you want to <br> delete your account?</p>
             <div class="modal-button-container">
@@ -33,7 +33,7 @@
         <p>email: <span id="email">insert email here</span></p>
         <p>username: <span id="username">insert username here</span></p>
         <button class="logout-button" onclick="logOut()">LOG OUT</button>
-        <button class="delete-account-button" onclick="deleteAccount()">DELETE ACCOUNT</button>
+        <button class="delete-account-button" onclick="displayDialog()">DELETE ACCOUNT</button>
     </div>
     
 
