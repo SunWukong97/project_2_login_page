@@ -2,6 +2,7 @@
     --h1-font-size: 2.32rem;
     --h2-font-font-size: 1.16rem;
     --text-font-size: 0.9rem;
+    --font-type : 'Roboto', sans-serif;
 }
 
 body{
@@ -43,6 +44,7 @@ h1{
 
 
 .input-fields{
+    font-family: var(--font-type);
     margin-top: 0.5em;
     
     max-width: 100%;
@@ -63,6 +65,7 @@ h1{
 }
 
 .submitButton{
+    font-family: var(--font-type);
     margin-left: auto;
     margin-right: auto;
     margin-top: 1.5em;
