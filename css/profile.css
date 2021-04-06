@@ -13,6 +13,32 @@ body{
     font-weight: 500;
 }
 
+.modal-container{
+    min-width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    position: fixed;
+    background-color: rgba(39, 39, 39, 0.719);
+}
+
+.modal{
+    color: black;
+    background-color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50%;
+    
+    padding: 2em 1em 1em 1em;
+    box-sizing: border-box;
+    max-width: 65vw;
+    border-radius: 0.5em;
+}
+
+.modal p{
+    padding-bottom:2em
+}
+
 .container{
     margin-left: auto;
     margin-right: auto;
@@ -52,14 +78,25 @@ p{
     padding: 0.7em 1em;
 }
 
-.delete-button{
-    margin-top: 6em;
+.logout-button:hover{
+    cursor: pointer;
+    background-color: #ec8b8e;
+}
+
+.delete-account-button{
+    margin-top: 2em;
     margin-left: auto;
     margin-right: auto;
-    border: #f31c22 solid 0.2em;
     border-radius: 2em;
     font-size: 0.7rem;
+    color: white;
+    background-color: transparent;
+    border:  0.15em solid  #f31c22;
     font-weight: 500;
+    padding: 1.25em 0.5em;
+}
 
-    padding: 1.15em 0.6em;
+.delete--account-button:hover{
+    cursor: pointer;
+    background-color: #f31c22;
 }
