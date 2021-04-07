@@ -42,8 +42,9 @@ body{
 }
 
 .modal-button-container{
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 47% 47%;
+    column-gap: 5%;
 }
 .modal button{
     font-family: var(--font-type);
@@ -55,6 +56,12 @@ body{
     border: 0.1em solid #f31c22;
 }
 
+.modal button:hover{
+    background-color: #f31c22;
+    cursor: pointer;
+    color: white;
+}
+
 
 .container{
     margin-left: auto;
@@ -63,7 +70,7 @@ body{
     width: 80%;
     text-align: center;
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: auto;
     grid-template-rows: auto;
     row-gap: 1.15em;
     
@@ -82,9 +89,12 @@ p{
     font-size: var(--text-font-size);
 }
 
+
+.button-container{
+    margin-top: 2em;
+}
 .logout-button{
     font-family: var(--font-type);
-    margin-top: 2em;
     margin-left: auto;
     margin-right: auto;
     border-radius: 2em;
@@ -94,6 +104,7 @@ p{
     border: none;
     font-weight: 500;
     padding: 0.7em 1em;
+    display: block;
 }
 
 .logout-button:hover{
@@ -103,7 +114,7 @@ p{
 
 .delete-account-button{
     font-family: var(--font-type);
-    margin-top: 2em;
+    margin-top: 5em;
     margin-left: auto;
     margin-right: auto;
     border-radius: 2em;
@@ -113,9 +124,77 @@ p{
     border:  0.15em solid  #f31c22;
     font-weight: 500;
     padding: 1.25em 0.5em;
+    display: block;
 }
 
-.delete--account-button:hover{
+.delete-account-button:hover{
     cursor: pointer;
     background-color: #f31c22;
+}
+
+
+
+@media screen and (min-width: 768px){
+    
+    .modal{
+        max-width: 40vw;
+        margin-top: 42%;
+    }
+
+    .modal-button-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1em;
+        padding: 0 10%;
+        
+    }
+    
+    
+    h1{
+        margin-top: 40%;
+    }
+
+    .button-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logout-button, .delete-account-button{
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1024px){
+
+    .modal{
+        margin-top: 23%;
+        max-width: 30%;
+    }
+
+    .modal-button-container{
+        padding-right: 1%;
+        padding-left: 0;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 0.3em;
+       
+        max-width: 60%;
+        margin-left: auto;
+    }
+
+    
+
+    h1{
+        margin-top: 25%;
+    }
+
+    .button-container{
+        margin-top: 5em;
+        column-gap: 3em;
+    }
+    
 }
