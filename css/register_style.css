@@ -26,13 +26,13 @@ a{
     font-weight: 500;
 }
 .greetingMessage{
-    margin-top: 2em;
+    margin-top: 6em;
     margin-bottom: 2em;
 }
 h1{
     font-size: var(--h1-font-size);
     text-align: center;
-    margin-top: 2em;
+    
 }
 
 .grid{
@@ -116,9 +116,11 @@ p{
 @media screen and (min-width: 1024px){
     .container{
         width: 35%;
+        
     }
 
     .greetingMessage{
-        margin-top: 15vh;
+        margin-top: 10vh;
+        margin-bottom: 1em;
     }
 }
