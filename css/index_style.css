@@ -159,6 +159,13 @@ p{
         margin-top: 1.5em;
 
     }
+
+    .formWrapper .inputFields{
+        padding: 0.5em;
+        font-size: 1rem;
+    }
+
+    
     .alternateLogin{
         width: 25%;
     }
