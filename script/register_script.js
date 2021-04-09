@@ -162,11 +162,16 @@ function validateUsernameRegistration(unregUsername) {
  */
 function validateEmailRegistration(unregEmail) {
 
-    if (localStorage.getItem(unregEmail) == null) {
-        return true;
+    for( var i = 0; i< localStorage.length; i++){
+        var key = localStorage.key(i);
+        var registeredEmail = JSON.parse(localStorage.getItem(key)).email;
+        if (unregEmail == registeredEmail) {
+            return false;
+            
+        }
+        
     }
-
-    return false;
+    return true;
 }
 
 /**
