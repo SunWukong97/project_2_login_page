@@ -7,7 +7,7 @@
 import User from './module/user.js';
 
 
-let errorMessage = document.getElementById("invalid");
+let errorMessage = document.getElementById("error-message");
 
 
 const defaultUser = new User("admin", "admin", "admin", "admin", "admin");
@@ -23,7 +23,7 @@ let password;
  * when using modules use event listeners to allow for interactability, specifically onclick events.
  * If not functions will be 'undefined' and an error will occur
  */
-document.getElementById("signInButton").addEventListener('click', (event) => {
+document.getElementById("sign-in-button").addEventListener('click', (event) => {
     event.preventDefault();
     submitFunction();
 });
