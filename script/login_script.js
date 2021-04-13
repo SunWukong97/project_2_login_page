@@ -33,7 +33,6 @@ document.getElementById("clear-button").addEventListener('click', () => {
 });
 
 
-
 /**
  * To validate whether or not the login credentials are correct,
  */
@@ -44,7 +43,7 @@ function submitFunction() {
 
     for (var i = 0; i < listOfDefaultUsers.length; i++) {
         if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
-            console.log("welcome");
+    
             localStorage.setItem("currentUser", JSON.stringify(listOfDefaultUsers[i]));
             window.location.href = "profile.html";
             userExist = true;
@@ -55,6 +54,7 @@ function submitFunction() {
 
     if (localStorage.getItem(username) !== null) {
         
+        //try catch block used to prevent error being thrown if nothing is typed into the input fields
         try {
             let userInfo = JSON.parse(localStorage.getItem(username));
             let correctPassword = userInfo.password;
