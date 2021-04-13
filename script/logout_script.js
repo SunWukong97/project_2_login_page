@@ -40,7 +40,7 @@ username.innerText = loginInfo.username;
 
 
 function logOut(){
-    localStorage.setItem("currentUser", noneLoggedIn);
+    localStorage.setItem("currentUser", JSON.stringify(noneLoggedIn));
     window.location.href = "index.html";
 }
 
