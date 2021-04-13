@@ -18,12 +18,12 @@ let emailFilled;
 let passwordFilled;
 let confirmPasswordFilled;
 
-let firstname = document.getElementById('first-name-field');
-let lastname = document.getElementById('last-name-field');
-let email = document.getElementById('email-field');
-let username = document.getElementById('username-field');
-let password = document.getElementById('password-field');
-let confirmPassword = document.getElementById('confirm-password-field');
+let firstnameField = document.getElementById('first-name-field');
+let lastnameField = document.getElementById('last-name-field');
+let emailField = document.getElementById('email-field');
+let usernameField = document.getElementById('username-field');
+let passwordField = document.getElementById('password-field');
+let confirmPasswordField = document.getElementById('confirm-password-field');
 
 let usernameErrorMessage = document.getElementById('username-error-message');
 usernameErrorMessage.style.display = "none";
@@ -48,39 +48,41 @@ submitBtn.disabled = true;
 submitBtn.classList.add("disabled");
 
 //will constatnly check to see if anything is typed into the field
-firstname.addEventListener("input", (event) => {
-    firstnameFilled = checkInputField(firstname);
+firstnameField.addEventListener("input", (event) => {
+    firstnameFilled = checkInputField(firstnameField);
 
 });
 
-lastname.addEventListener("input", () => {
-    lastnameFilled = checkInputField(lastname);
+lastnameField.addEventListener("input", () => {
+    lastnameFilled = checkInputField(lastnameField);
 });
 
-email.addEventListener("input", () => {
-    emailFilled = checkInputField(email);
+emailField.addEventListener("input", () => {
+    emailFilled = checkInputField(emailField);
 });
 
-username.addEventListener("input", () => {
-    usernameFilled = checkInputField(username);
+usernameField.addEventListener("input", () => {
+    console.log(usernameField);
+    usernameFilled = checkInputField(usernameField);
+    
 });
 
-password.addEventListener("input", () => {
-    passwordFilled = checkInputField(password);
+passwordField.addEventListener("input", () => {
+    passwordFilled = checkInputField(passwordField);
 });
 
-confirmPassword.addEventListener("input", () => {
-    confirmPasswordFilled = checkInputField(confirmPassword);
+confirmPasswordField.addEventListener("input", () => {
+    confirmPasswordFilled = checkInputField(confirmPasswordField);
 });
 
 
 
 
 //a loop that will continually check if all fields of the form are filled every 500ms
-var interval = 500;
+var interval = 300;
 window.setInterval(() => {
 
-    if (firstnameFilled && lastnameFilled && usernameFilled && passwordFilled && confirmPasswordFilled) {
+    if (firstnameFilled && lastnameFilled && emailFilled && usernameFilled && passwordFilled && confirmPasswordFilled) {
         submitBtn.disabled = false;
         submitBtn.classList.remove("disabled");
 
@@ -100,28 +102,40 @@ window.setInterval(() => {
  */
 function registerFunction() {
 
-    firstname = document.getElementById('first-name-field').value;
-    lastname = document.getElementById('last-name-field').value;
-    email = document.getElementById('email-field').value;
-    username = document.getElementById('username-field').value;
-    password = document.getElementById('password-field').value;
-    confirmPassword = document.getElementById('confirm-password-field').value;
+    let firstname = document.getElementById('first-name-field').value;
+    let lastname = document.getElementById('last-name-field').value;
+    let email = document.getElementById('email-field').value;
+    let username = document.getElementById('username-field').value;
+    let password = document.getElementById('password-field').value;
+    let confirmPassword = document.getElementById('confirm-password-field').value;
 
 
     if (!validateUsernameRegistration(username)) {
         usernameErrorMessage.style.display = "block";
     }
+    else if (validateUsernameRegistration(username)) {
+        usernameErrorMessage.style.display = "none";
+    }
 
     if (!validateEmailRegistration(email)) {
         emailErrorMessage.style.display = "block";
+    }
+    else if (validateEmailRegistration(email)) {
+        emailErrorMessage.style.display = "none";
     }
 
     if (!validEmailFormat(email)) {
         emailErrorMessage2.style.display = "block";
     }
+    else if (validEmailFormat(email)) {
+        emailErrorMessage2.style.display = "none";
+    }
 
-    if(password !== confirmPassword){
+    if (password !== confirmPassword) {
         passwordErrorMessage.style.display = "block";
+    }
+    else if (password == confirmPassword) {
+        passwordErrorMessage.style.display = "none";
     }
 
     if (password === confirmPassword && validateUsernameRegistration(username) && validateEmailRegistration(email) && validEmailFormat(email)) {
@@ -162,25 +176,24 @@ function validateUsernameRegistration(unregUsername) {
  */
 function validateEmailRegistration(unregEmail) {
 
-    for( var i = 0; i< localStorage.length; i++){
+    for (var i = 0; i < localStorage.length; i++) {
+
         var key = localStorage.key(i);
         var registeredEmail = JSON.parse(localStorage.getItem(key)).email;
         if (unregEmail == registeredEmail) {
             return false;
-            
         }
-        
     }
     return true;
 }
 
 /**
  * Checks to see if the password is formatted correctly
- * @param {*} passwordField strin from the password input field 
+ * @param {*} this_passwordField strin from the password input field 
  * @returns  a boolean value depending if the password is formatted correctly
  */
-function validPasswordFormat(passwordField) {
-    let array = passwordField.split("");
+function validPasswordFormat(this_passwordField) {
+    let array = this_passwordField.split("");
     let validPassword = true;
     array.forEach((i) => {
         if (i === ' ') {
@@ -195,13 +208,13 @@ function validPasswordFormat(passwordField) {
 
 /**
  * Checks to see if the email is formatted correctly 
- * @param {*} emailField string from the email input field
+ * @param {*} this_emailField string from the email input field
  * @returns a boolean value depending if the email is formatted correctly 
  */
-function validEmailFormat(emailField) {
+function validEmailFormat(this_emailField) {
 
-    if (emailField.indexOf('@') != -1) {
-        let array = emailField.substring(emailField.indexOf("@"));
+    if (this_emailField.indexOf('@') != -1) {
+        let array = this_emailField.substring(this_emailField.indexOf("@"));
         array = array.split('');
         if (array.length > 1) {
             return true;
