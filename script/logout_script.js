@@ -1,3 +1,7 @@
+import User from './module/user.js';
+
+const noneLoggedIn = new User("none", "none", "none", "none", "none");
+
 let currentUser = document.getElementById("current-user");
 let firstname = document.getElementById("firstname");
 let lastname = document.getElementById("lastname");
@@ -7,17 +11,26 @@ let dialogModal = document.getElementById("dialog-modal");
 
 let loginInfo = JSON.parse(localStorage.getItem("currentUser"));
 
+document.getElementById("logout-button").addEventListener('click', (event) => {
+    logOut();
+});
+
+document.getElementById("delete-account-button").addEventListener('click', (event) => {
+    displayDialog();
+});
+
+
 document.getElementById("delete-button").addEventListener('click', (event) => {
     event.preventDefault();
     deleteAccount();
     dismissDialog();
     logOut();
     
-})
+});
 document.getElementById("cancel-button").addEventListener('click', (event) => {
     event.preventDefault();
     dismissDialog();
-})
+});
 
 currentUser.innerText = loginInfo.firstname;
 firstname.innerText = loginInfo.firstname;
@@ -27,7 +40,7 @@ username.innerText = loginInfo.username;
 
 
 function logOut(){
-    localStorage.setItem("currentUser", null);
+    localStorage.setItem("currentUser", noneLoggedIn);
     window.location.href = "index.html";
 }
 
