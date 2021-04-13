@@ -54,7 +54,7 @@ function submitFunction() {
 
     if (localStorage.getItem(username) !== null) {
         
-        //try catch block used to prevent error being thrown if nothing is typed into the input fields
+        //try catch block used to prevent an error being thrown if nothing is typed into the input fields
         try {
             let userInfo = JSON.parse(localStorage.getItem(username));
             let correctPassword = userInfo.password;
