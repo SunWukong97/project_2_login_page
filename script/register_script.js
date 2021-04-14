@@ -188,6 +188,7 @@ function validateEmailRegistration(unregEmail) {
 }
 
 /**
+ * This function will be implemented in future use
  * Checks to see if the password is formatted correctly
  * @param {*} this_passwordField strin from the password input field 
  * @returns  a boolean value depending if the password is formatted correctly
