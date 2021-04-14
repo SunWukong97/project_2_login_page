@@ -7,7 +7,8 @@ let firstname = document.getElementById("firstname");
 let lastname = document.getElementById("lastname");
 let email = document.getElementById("email");
 let username = document.getElementById("username");
-let dialogModal = document.getElementById("dialog-modal");
+let dialogModalOverlay = document.getElementById("dialog-modal-overlay");
+let modal = document.getElementById("modal");
 
 let loginInfo = JSON.parse(localStorage.getItem("currentUser"));
 
@@ -45,22 +46,37 @@ function logOut(){
 }
 
 function displayDialog(){
-    dialogModal.style.display = "block";
+    dialogModalOverlay.style.display = "block";
+    addAnimation(modal, 'animate-modal-expand', 300);
+    
 }
 
 function dismissDialog() {
-    dialogModal.style.display = "none";
+    dialogModalOverlay.style.display = "none";
 }
 
 //dismisses the dialog when the overlay is clicked
 window.onclick = (event) => {
-    if(event.target == dialogModal){
-        dialogModal.style.display = "none";
+    if (event.target == dialogModal) {
+        dialogModalOverlay.style.display = "none";
     }
 }
 
 function deleteAccount(){
     localStorage.removeItem(loginInfo.username);
 
+}
+
+
+
+/** 
+ * animation functions 
+*/
+
+function addAnimation(itemToAnimate, animationName, animationTime){
+    itemToAnimate.classList.add(animationName);
+    setTimeout(() => {
+        modal.classList.remove(animationName);
+    }, animationTime);
 }
 

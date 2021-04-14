@@ -173,7 +173,7 @@ p{
 
     .modal{
         margin-top: 15%;
-        max-width: 30%;
+        max-width: 30vw;
     }
 
     .modal-button-container{
@@ -197,4 +197,36 @@ p{
         column-gap: 3em;
     }
     
+}
+
+
+.animate-modal-expand{
+    animation: modal-expand 0.3s forwards;
+}
+
+
+@keyframes modal-expand{
+    from{
+        opacity: 1;
+        transform: scalex(0);
+    }
+    to{
+        opacity: 1;
+        transform: scalex(100%);
+    }
+}
+
+.animate-modal-deflate{
+    animation: modal-deflate 0.3s forwards;
+}
+
+@keyframes modal-deflate{
+    from{
+        opacity: 1;
+        transform: scalex(100%);
+    }
+    to{
+        opacity: 1;
+        transform: scalex(0);
+    }
 }
