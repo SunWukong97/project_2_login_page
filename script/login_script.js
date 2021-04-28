@@ -41,6 +41,7 @@ function submitFunction() {
     password = document.getElementById('passwordField').value;
     let userExist = false;
 
+    //default account login check.
     for (var i = 0; i < listOfDefaultUsers.length; i++) {
         if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
     
@@ -52,6 +53,8 @@ function submitFunction() {
 
     }
 
+
+
     if (localStorage.getItem(username) !== null) {
         
         //try catch block used to prevent an error being thrown if nothing is typed into the input fields
@@ -61,8 +64,9 @@ function submitFunction() {
             if (password === correctPassword) {
                 //to know who is currently logged in and to pull their info for their profile page
                 localStorage.setItem("currentUser", localStorage.getItem(username));
-                window.location.href = "profile.html";
                 userExist = true;
+                window.location.href = "profile.html";
+                
             }
 
         } 
@@ -72,6 +76,10 @@ function submitFunction() {
         }
 
 
+    }
+
+    if(emailLogin(username)){
+        userExist = true;
     }
 
     if (!userExist) {
@@ -86,5 +94,28 @@ function submitFunction() {
  */
 function deleteAllAccounts(){
     localStorage.clear();
+}
+
+/**
+ * Used to validate whether or not an account exists with the email address entered into the username input field. An alternative way of logging in rather than using the username tied to an account.
+ * @param {*} emailAddress the email address to verify
+ * @returns a boolean value: true or false.
+ */
+function emailLogin(emailAddress){
+    for( var i = 0; i < localStorage.length; i++){
+        var key = localStorage.key(i);
+        let registeredAccount = JSON.parse(localStorage.getItem(key));
+
+        if(emailAddress == registeredAccount.email){
+            let correctPassword = registeredAccount.password;
+
+            if(password === correctPassword){
+                localStorage.setItem("currentUser", JSON.stringify(registeredAccount));
+                window.location.href = "profile.html";
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
