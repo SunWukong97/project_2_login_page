@@ -1,7 +1,7 @@
 /**
  * @author Thomas Nguyen
  * This script checks whether or not the login credentials matches the ones that already exists in the database for the website.
- * This particular version utilizes local storage as the database where it pulls and push info to and from. 
+ * This particular version utilizes local storage as the database where it pulls and push info from and to. 
  */
 //importing modules: similar to importing classes in Java
 import User from './module/user.js';
