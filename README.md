@@ -6,7 +6,7 @@ The purpose of this document is to describe the functionality of each page and h
 <br>\* **system** will refer to pieces of JavaScript code. 
 <br>\* **database** will refer to the usage of local storage in order to simulate a database.
 <br>\* **user** will refer to a person interacting with the website.
-<br>link to the webpage: https://sunwukong97.github.io/project_2_login_page/
+<br>link to the website: https://sunwukong97.github.io/project_2_login_page/
 
 ## Table of Contents
 + [Login Page](#login-page)
