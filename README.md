@@ -38,7 +38,7 @@ In the event that the text entere into the input field is not in the format of a
 ## Sign up Page
 ![picture of the sign up page](https://github.com/SunWukong97/project_2_login_page/blob/main/login_page_mockup/Web%201920%20%E2%80%93%20registration.png)
 On This page a user may sign up for an account by entereing all the necessary information into the fields. All the fields must be filled in before the sign up button can be pressed. Whenever a user presses the sign up button various fields will be checked by the system before submitting the information to the database. If a field is not filled incorrectly an appropriate error message will display underneath the field. For example if a username or email is already registered to an account in the database an error message will show up indicating it has already been taken or is registered to another account and nothing will be submitted to the databse.
-![registered username error message](https://github.com/SunWukong97/project_2_login_page/blob/main/login_page_mockup/error%20message%20%E2%80%93%202.png)
+<br>![registered username error message](https://github.com/SunWukong97/project_2_login_page/blob/main/login_page_mockup/error%20message%20%E2%80%93%202.png)
 
 Along with that the system will also check to make sure the email address entered into the email field is in the correct email format (something@domainName). The same will happen with the password and confirm password field to check that the text in both fields are the same before submitting.
 
