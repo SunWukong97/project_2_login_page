@@ -43,6 +43,7 @@ On This page a user may sign up for an account by entereing all the necessary in
 Along with that the system will also check to make sure the email address entered into the email field is in the correct email format (something@domainName). The same will happen with the password and confirm password field to check that the text in both fields are the same before submitting.
 
 ## Profile Page
+![picture of profile page](https://github.com/SunWukong97/project_2_login_page/blob/main/login_page_mockup/Web%201920%20%E2%80%93%20profile.png)
 Here a user's information will be displayed such as their first name, last name and email address from when they signed up. There are also two buttons a user can interact with: the log out button and the delete account button.
 
 ### Log out button
@@ -50,6 +51,7 @@ If the log out button is pressed the user will logged out of their account and r
 
 ### Delete account button
 If the delete account button is pressed a pop-up modal will appear confirming whether or not the user wants to delete their account. If the user chooses to delete their account, all information tied to their account will be deleted from the database and the user will be redirected back to the login page. If they choose not to and press the cancel button the pop-up modal is dismissed. 
+![pop up modal when the delete account button is pressed](https://github.com/SunWukong97/project_2_login_page/blob/main/login_page_mockup/Web%201920%20%E2%80%93%20profile%20%E2%80%93%202%20modal.png)
 
 ## Technologies
 Project is created using:
