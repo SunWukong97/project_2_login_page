@@ -2,7 +2,7 @@
 ## General Info
 A personal project where I create an account system that allows a user to login, sign up and retrieve their password. It was also an oppertunity for me to learn and explore how JavaScript ES6 classes work and how they differentiate from other OOP languages, along with DOM manipulation using Javascript.
 
-The purpose of this document is to describe the functionality of each page and how they work. In this document the terms **system**,**database**  and **user** will be used when describing certain things work, where 
+The purpose of this document is to describe the functionality of each page and how they work. In this document the terms **system**, **database**  and **user** will be used when describing certain things work, where 
 <br>\* **system** will refer to pieces of JavaScript code. 
 <br>\* **database** will refer to the usage of local storage in order to simulate a database.
 <br>\* **user** will refer to a person interacting with the website.
