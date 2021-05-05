@@ -45,23 +45,33 @@ function logOut(){
     window.location.href = "index.html";
 }
 
+/**
+ * to display the pop up dialog modal 
+ */
 function displayDialog(){
     dialogModalOverlay.style.display = "block";
-    addAnimation(modal, 'animate-modal-expand', 300);
+    addAnimation(modal, 'animate-modal-expand');
+    removeAnimation(modal, 'animate-modal-expand', 300);
     
 }
 
+/**
+ * to dismiss the pop up dialog modal
+ */
 function dismissDialog() {
     dialogModalOverlay.style.display = "none";
 }
 
 //dismisses the dialog when the overlay is clicked
 window.onclick = (event) => {
-    if (event.target == dialogModal) {
+    if (event.target == dialogModalOverlay) {
         dialogModalOverlay.style.display = "none";
     }
 }
 
+/**
+ * removes the account from the localStorage list
+ */
 function deleteAccount(){
     localStorage.removeItem(loginInfo.username);
 
@@ -73,8 +83,24 @@ function deleteAccount(){
  * animation functions 
 */
 
-function addAnimation(itemToAnimate, animationName, animationTime){
+/**
+ * To add an animation to a HTML element
+ * @param {*} itemToAnimate item to add an animation to
+ * @param {*} animationName the animation css class name
+ * 
+ */
+function addAnimation(itemToAnimate, animationName){
     itemToAnimate.classList.add(animationName);
+    
+}
+
+/**
+ * to remove an animation from a HTML element
+ * @param {*} itemToAnimate item to add an animation to
+ * @param {*} animationName css class animation name
+ * @param {*} animationTime how long the animation will play for before the css class is removed
+ */
+function removeAnimation(itemToAnimate, animationName, animationTime){
     setTimeout(() => {
         itemToAnimate.classList.remove(animationName);
     }, animationTime);
