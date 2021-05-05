@@ -76,7 +76,7 @@ function deleteAccount(){
 function addAnimation(itemToAnimate, animationName, animationTime){
     itemToAnimate.classList.add(animationName);
     setTimeout(() => {
-        modal.classList.remove(animationName);
+        itemToAnimate.classList.remove(animationName);
     }, animationTime);
 }
 
