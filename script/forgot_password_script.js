@@ -17,12 +17,12 @@ document.getElementById("next-button").addEventListener('click', (event) => {
 function next() {
     validEmailFormat(emailField.value) ? errorMessage.style.display = "none" : errorMessage.style.display = "block";
     if (validateRegisteredEmail(emailField.value)) {
-        alertBannerContainer.classList.add("alert-banner-container-animation");
+        addAnimation(alertBannerContainer, 'alert-banner-container-animation');
         window.alert(`shhh... the password for ${emailField.value} was: ${password}`);
     }
 
     if (!validateRegisteredEmail(emailField.value) && (validEmailFormat(emailField.value))){
-        alertBannerContainer.classList.add("alert-banner-container-animation");
+        addAnimation(alertBannerContainer, 'alert-banner-container-animation');
     }
 }
 
@@ -63,4 +63,15 @@ function validateRegisteredEmail(emailAddress) {
         }
     }
     return false;
+}
+
+/**
+ * To add an animation to a HTML element
+ * @param {*} itemToAnimate item to add an animation to
+ * @param {*} animationName the animation css class name
+ * 
+ */
+ function addAnimation(itemToAnimate, animationName){
+    itemToAnimate.classList.add(animationName);
+    
 }
