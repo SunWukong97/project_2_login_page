@@ -1,14 +1,11 @@
 /**
  * @author Thomas Nguyen
- * user class that stores username, password, firstname, lastname and email
+ * Purpose: Used when creating an account/user profile in order to store the firstname, last name, password, etc.
  */
 
 
 export default class User{
-    // constructor(username, password){
-    //     this._username = username;
-    //     this._password = password;
-    // }
+
     constructor(firstname, lastname, email, username, password){
         this._firstname = firstname;
         this._lastname = lastname;
