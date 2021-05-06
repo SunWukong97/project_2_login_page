@@ -26,6 +26,9 @@ In the event a user forgets their password they can click on the **Forgot Passwo
 ### Join us
 If a user does not have an account they may click on the **Join us** link to be redirected to the sign up page and create an account there.
 
+### Important
+Since localStorage is being used as a database to store all the accounts information, in order to delete all stored information from your machine press the **A** button located in the "Or login with" section. 
+
 ## Forgot Password Page
 ![picture of the forgot password page](https://github.com/SunWukong97/project_2_login_page/blob/main/login_page_mockup/Web%201920%20%E2%80%93%20forgot%20password.png)
 A user may enter their email address in to the input field to retrieve their password that is tied to a registered account. If the email entered is tied to a registered account a pop up alert will show up, if not than just a notification will appear at the top of the screen indicating an email has been sent.
