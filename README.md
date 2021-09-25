@@ -19,6 +19,60 @@ The purpose of this document is to describe the functionality of each page and h
 ## Login Page
 ![picture of the login page](https://github.com/SunWukong97/project_2_login_page/blob/main/login_page_mockup/Web%201920%20%E2%80%93%20login.png)
 Here at the main page a user can enter their username/email and password in order to sign in if they already have an account. After entering their credentials the system will check to see if the corresponding username and password matches an existing account in the databse. If it does they will be redirected to their profile page, if not an error message will show up indicating that either the password or username is incorrect.
+ In order to achieve this I used LocalStorage to act as a database to check for the cerednetials entered whenever the login button is clicked.
+ ```
+ function submitFunction() {
+    username = document.getElementById('usernameField').value;
+    password = document.getElementById('passwordField').value;
+    let userExist = false;
+
+    //default account login check.
+    for (var i = 0; i < listOfDefaultUsers.length; i++) {
+        if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
+    
+            localStorage.setItem("currentUser", JSON.stringify(listOfDefaultUsers[i]));
+            window.location.href = "profile.html";
+            userExist = true;
+            break;
+        }
+
+    }
+
+
+
+    if (localStorage.getItem(username) !== null) {
+        
+        //try catch block used to prevent an error being thrown if nothing is typed into the input fields
+        try {
+            let userInfo = JSON.parse(localStorage.getItem(username));
+            let correctPassword = userInfo.password;
+            if (password === correctPassword) {
+                //to know who is currently logged in and to pull their info for their profile page
+                localStorage.setItem("currentUser", localStorage.getItem(username));
+                userExist = true;
+                window.location.href = "profile.html";
+                
+            }
+
+        } 
+        catch (error) {
+            errorMessage.style.display = "block";            
+
+        }
+
+
+    }
+
+    if(emailLogin(username)){
+        userExist = true;
+    }
+
+    if (!userExist) {
+        console.log('incorrect username and/or password');
+        errorMessage.style.display = "block";
+    }
+}
+```
 
 ### Forgot password
 In the event a user forgets their password they can click on the **Forgot Password?** link in order to be redirected to the Forgot Password page to retrieve their password.
