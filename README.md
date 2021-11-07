@@ -88,6 +88,7 @@ for (var i = 0; i < listOfDefaultUsers.length; i++) {
         userExist = true;
         break;
     }
+}
 ```
 ### Forgot password
 In the event a user forgets their password they can click on the **Forgot Password?** link in order to be redirected to the Forgot Password page to retrieve their password.
