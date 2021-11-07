@@ -75,7 +75,7 @@ Here at the main page a user can enter their username/email and password in orde
 ```
 The above function does several things in order to verify the login credentials. First it grabs the values of the input fields and checks to see if the match with one of the corresponding default accounts stored in the listOfDefaultUser array.
 ```
-username = document.getElementById('usernameField').value;
+    username = document.getElementById('usernameField').value;
     password = document.getElementById('passwordField').value;
     let userExist = false;
 
