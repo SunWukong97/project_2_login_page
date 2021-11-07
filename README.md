@@ -75,22 +75,19 @@ Here at the main page a user can enter their username/email and password in orde
 ```
 The above function does several things in order to verify the login credentials. First it grabs the values of the input fields and checks to see if the match with one of the corresponding default accounts stored in the listOfDefaultUser array.
 ```
-    username = document.getElementById('usernameField').value;
-    password = document.getElementById('passwordField').value;
-    let userExist = false;
+username = document.getElementById('usernameField').value;
+password = document.getElementById('passwordField').value;
+let userExist = false;
 
-    //default account login check.
-    for (var i = 0; i < listOfDefaultUsers.length; i++) {
-        if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
+//default account login check.
+for (var i = 0; i < listOfDefaultUsers.length; i++) {
+    if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
     
-            localStorage.setItem("currentUser", JSON.stringify(listOfDefaultUsers[i]));
-            window.location.href = "profile.html";
-            userExist = true;
-            break;
-        }
-
+        localStorage.setItem("currentUser", JSON.stringify(listOfDefaultUsers[i]));
+        window.location.href = "profile.html";
+        userExist = true;
+        break;
     }
-
 ```
 ### Forgot password
 In the event a user forgets their password they can click on the **Forgot Password?** link in order to be redirected to the Forgot Password page to retrieve their password.
