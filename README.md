@@ -135,4 +135,4 @@ Project is created using:
 + JavaScript(ES6)
 
 ## Credits
-author: SunWukong97 (Thomas Nguyen)
+author: ThomasNLy (Thomas Nguyen)
