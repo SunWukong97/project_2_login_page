@@ -18,7 +18,7 @@ The purpose of this document is to describe the functionality of each page and h
 
 ## Login Page
 ![picture of the login page](https://github.com/ThomasNLy/project_2_login_page/blob/main/login_page_mockup/Web%201920%20%E2%80%93%20login.png)
-Here at the main page a user can enter their username/email and password in order to sign in if they already have an account. After entering their credentials the system will check to see if the corresponding username and password matches an existing account in the databse. If it does they will be redirected to their profile page, if not an error message will show up indicating that either the password or username is incorrect.
+Here at the main page a user can enter their username/email and password in order to sign in if they already have an account. After entering their credentials the **system** will check to see if the corresponding username and password matches an existing account in the databse. If it does they will be redirected to their profile page, if not an error message will show up indicating that either the password or username is incorrect.
  In order to achieve this I used LocalStorage to act as a database to check for the cerednetials entered whenever the login button is clicked.
  ```
  function submitFunction() {
@@ -73,7 +73,25 @@ Here at the main page a user can enter their username/email and password in orde
     }
 }
 ```
+The above function does several things in order to verify the login credentials. First it grabs the values of the input fields and checks to see if the match with one of the corresponding default accounts stored in the listOfDefaultUser array.
+```
+username = document.getElementById('usernameField').value;
+    password = document.getElementById('passwordField').value;
+    let userExist = false;
 
+    //default account login check.
+    for (var i = 0; i < listOfDefaultUsers.length; i++) {
+        if (listOfDefaultUsers[i].username === username && listOfDefaultUsers[i].password === password) {
+    
+            localStorage.setItem("currentUser", JSON.stringify(listOfDefaultUsers[i]));
+            window.location.href = "profile.html";
+            userExist = true;
+            break;
+        }
+
+    }
+
+```
 ### Forgot password
 In the event a user forgets their password they can click on the **Forgot Password?** link in order to be redirected to the Forgot Password page to retrieve their password.
 
