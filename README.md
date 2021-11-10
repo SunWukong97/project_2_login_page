@@ -19,7 +19,7 @@ The purpose of this document is to describe the functionality of each page and h
 ## Login Page
 ![picture of the login page](https://github.com/ThomasNLy/project_2_login_page/blob/main/login_page_mockup/Web%201920%20%E2%80%93%20login.png)
 Here at the main page a user can enter their username/email and password in order to sign in if they already have an account. After entering their credentials the **system** will check to see if the corresponding username and password matches an existing account in the databse. If it does they will be redirected to their profile page, if not an error message will show up indicating that either the password or username is incorrect.
- In order to achieve this I used LocalStorage to act as a database to check for the cerednetials entered whenever the login button is clicked.
+ In order to achieve this I used LocalStorage to act as a database to check for the credentials entered whenever the sign in button is clicked with the following function.
  ```
  function submitFunction() {
     username = document.getElementById('usernameField').value;
@@ -73,7 +73,7 @@ Here at the main page a user can enter their username/email and password in orde
     }
 }
 ```
-The above function does several things in order to verify the login credentials. First it grabs the values of the input fields and checks to see if the match with one of the corresponding default accounts stored in the listOfDefaultUser array.
+The above function does several things in order to verify the login credentials. First it grabs the values of the input fields and checks to see if the match with one of the corresponding default accounts stored in an array: listOfDefaultUser. If there is a match the user will be redirected to the profile page.
 ```
 username = document.getElementById('usernameField').value;
 password = document.getElementById('passwordField').value;
@@ -89,6 +89,46 @@ for (var i = 0; i < listOfDefaultUsers.length; i++) {
         break;
     }
 }
+```
+If a default account is not used than the login credentials will be checked to see if they are stored within localStorage. By using localStorage's getItem(var) method we can check if a username exists in the **database**, as localStorage utilizes keys to access their contents similar to a map array with its key value pairs with the username being the key in this case. 
+```
+if(localStorage.getItem(username) !== null) 
+```
+After that if the username does exist the account's info will be parsed into JSON format as localStorage can only store items as strings. From there the password entered into the password field will be compared with the password tied to the username, if they match the user will be redirected to their profile page.
+```
+if(localStorage.getItem(username) !== null){
+   let userInfo = JSON.parse(localStorage.getItem(username));
+   let correctPassword = userInfo.password;
+       if (password === correctPassword) {
+          //to know who is currently logged in and to pull their info for their profile page
+            localStorage.setItem("currentUser", localStorage.getItem(username));
+            userExist = true;
+            window.location.href = "profile.html";
+       }
+}
+```
+A try catch block is also implemented because if nothing were to be entered into the username and password fields an error will occur. The catch block alleviates this by having an error message displayed indicating that an incorrect username or password has been entered.
+```
+if (localStorage.getItem(username) !== null) {
+        
+        //try catch block used to prevent an error being thrown if nothing is typed into the input fields
+        try {
+            let userInfo = JSON.parse(localStorage.getItem(username));
+            let correctPassword = userInfo.password;
+            if (password === correctPassword) {
+                //to know who is currently logged in and to pull their info for their profile page
+                localStorage.setItem("currentUser", localStorage.getItem(username));
+                userExist = true;
+                window.location.href = "profile.html";
+                
+            }
+
+        } 
+        catch (error) {
+            errorMessage.style.display = "block";            
+
+        }
+    }
 ```
 ### Forgot password
 In the event a user forgets their password they can click on the **Forgot Password?** link in order to be redirected to the Forgot Password page to retrieve their password.
